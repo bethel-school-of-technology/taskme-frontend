@@ -1,0 +1,48 @@
+nav {
+  background-color: white;
+}
+
+.navbar__linksTitle {
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  list-style: none;
+  height: 60px;
+}
+
+.navbar__links a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: 400;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 27px;
+}
+
+.navbar__links a:hover {
+ background-color: lightcyan;
+}
+
+.navbar__linksRed {
+    color: rgb(212, 106, 106);
+}
+
+.navbar__linksOrange {
+    color: rgb(202, 151, 84);
+}
+
+.navbar__linksYellow {
+    color: rgb(226, 224, 84);
+}
+.navbar__linksGreen {
+    color: rgb(108, 204, 84);
+}
+
