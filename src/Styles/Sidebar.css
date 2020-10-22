@@ -3,8 +3,9 @@
     flex-direction: column;
     flex: 0.20;
     border-right: 1px solid lightgrey;
-    background-color: white;
+    background-color: rgb(41, 41, 65);
     justify-content: flex-start;
+    color: white;
 }
 
 .sidebar__header {
@@ -20,8 +21,8 @@
     display: flex;
 }
 
-.sidebar__headerSearch > .MuiSvgIcon-root {
-    color: gray;
+.sidebar__headerSearch .MuiSvgIcon-root {
+    color: white;
 }
 
 .sidebar__headerInfo {
@@ -36,6 +37,6 @@
 }
 
 .sidebar__headerInfo p {
-    color: grey;
+    color: lightgrey;
     font-size: 12px;
 }

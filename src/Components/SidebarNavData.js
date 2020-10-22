@@ -15,18 +15,18 @@ export const SidebarData = [
     title: "Groups",
     path: "/groups",
     icon: <GroupIcon />,
-    color: "navbar__linksOrange",
+    color: "navbar__linksYellow",
   },
   {
     title: "Ideas",
     path: "/ideas",
     icon: <EmojiObjectsIcon />,
-    color: "navbar__linksYellow",
+    color: "navbar__linksGreen",
   },
   {
     title: "Chat",
     path: "/chat",
     icon: <ChatIcon />,
-    color: "navbar__linksGreen",
+    color: "navbar__linksPurple",
   },
 ];

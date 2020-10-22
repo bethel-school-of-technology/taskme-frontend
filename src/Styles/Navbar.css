@@ -1,10 +1,12 @@
 nav {
-  background-color: white;
+  background-color: rgb(41, 41, 65);
 }
 
 .navbar__linksTitle {
   margin-left: 16px;
   margin-bottom: 8px;
+  color: white;
+  font-weight: 400;
 }
 
 .navbar__links {
@@ -27,22 +29,30 @@ nav {
   padding-left: 27px;
 }
 
-.navbar__links a:hover {
- background-color: lightcyan;
+.navbar__links:hover {
+ background-color: whitesmoke;
+ color: black;
 }
+
+.navbar__links:hover .navbar__linksTitle {
+ background-color: whitesmoke;
+ color: black;
+font-weight: 500;
+}
+
 
 .navbar__linksRed {
-    color: rgb(212, 106, 106);
-}
-
-.navbar__linksOrange {
-    color: rgb(202, 151, 84);
+    color: #FC6E6D;
 }
 
 .navbar__linksYellow {
-    color: rgb(226, 224, 84);
+    color: #FFC77D;
 }
+
 .navbar__linksGreen {
-    color: rgb(108, 204, 84);
+    color: #36E1BD;
+}
+.navbar__linksPurple {
+    color: #CB96EE;
 }
 
