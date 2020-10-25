@@ -30,12 +30,12 @@ nav {
 }
 
 .navbar__links:hover {
- background-color: whitesmoke;
+ background-color: white;
  color: black;
 }
 
 .navbar__links:hover .navbar__linksTitle {
- background-color: whitesmoke;
+ background-color: white;
  color: black;
 font-weight: 500;
 }
