@@ -14,7 +14,7 @@ function App() {
               <Sidebar />
               <Login />
             </Route>
-            <Route path="/ideas">
+            <Route path="/tasks">
               <Sidebar />
             </Route>
             <Route path="/">
