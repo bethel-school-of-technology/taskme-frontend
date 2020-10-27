@@ -1,0 +1,108 @@
+.register {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  flex: 0.8;
+  border-radius: 5px;
+}
+
+.register__logo {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  object-fit: contain;
+  width: 150px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.register__container {
+  width: 300px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.register > h1 {
+  font-weight: 500;
+  padding: 10px;
+}
+
+/* .login__container > form > h5 {
+  margin-bottom: 5px;
+  font-weight: 400;
+} */
+
+.register__container > form > input {
+  width: 96%;
+  height: 30px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border: 2px solid rgb(59, 59, 59);
+  outline: none;
+}
+
+.register__container > form > input:focus {
+  border: 2px solid #36E1BD;
+}
+
+.register__container > p {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.register__loginButton {
+  margin-top: 10px;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #fd6f6e;
+  color: #ffffff;
+  height: 30px;
+  width: 300px;
+  transition: all 0.5s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.register__registerButton {
+  margin-top: 10px;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #ffc77d;
+  color: #ffffff;
+  height: 30px;
+  width: 300px;
+  transition: all 0.5s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.animation span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.animation span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.animation:hover span {
+  padding-right: 25px;
+}
+
+.animation:hover span:after {
+  opacity: 1;
+  right: 0;
+}

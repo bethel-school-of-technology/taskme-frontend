@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import "../Styles/Login.css";
 import { Link } from "react-router-dom";
+import { useAppContext } from "../Libs/StateProvider";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = (e) => {
+  const signIn = async (e) => {
     e.preventDefault();
-    
-  };
-
-  const register = (e) => {
-    e.preventDefault();
-
   };
 
   return (
@@ -51,13 +46,11 @@ function Login() {
           </button>
         </form>
 
-        <button
-          onClick={register}
-          type="submit"
-          className="login__registerButton animation"
-        >
-          <span>Create your account</span>
-        </button>
+        <Link to="/register">
+          <button className="login__registerButton animation">
+            <span>Create Account</span>
+          </button>
+        </Link>
       </div>
     </div>
   );
