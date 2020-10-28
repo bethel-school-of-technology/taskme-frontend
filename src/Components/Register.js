@@ -12,21 +12,21 @@ function Register() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [cPassword, setCPassword] = useState("");
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState("");
 
   const register = async (e) => {
     e.preventDefault();
     try {
       if (password !== cPassword) {
-        setIsError(true);
+        setIsError("Passwords don't match.");
         return;
       }
       if (!email || !password || !cPassword || !firstName || !lastName) {
-        alert("Not all fields have been entered.");
+        setIsError("Please fill in all fields.");
         return;
       }
       if (password.length < 5) {
-        alert("Password must be at least 5 characters long.");
+        setIsError("Passwords must be at least 5 characters long.");
         return;
       }
 
@@ -68,6 +68,7 @@ function Register() {
       </Link>
       <h1>Register</h1>
       <div className="register__container">
+        <div className="register__error">{isError}</div>
         <form>
           <input
             placeholder="First Name"
@@ -120,9 +121,6 @@ function Register() {
             <span>Already have an account?</span>
           </button>
         </Link>
-        {isError && (
-          <div className="register__error">Passwords don't match.</div>
-        )}
       </div>
     </div>
   );
