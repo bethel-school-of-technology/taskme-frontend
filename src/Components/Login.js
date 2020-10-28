@@ -1,14 +1,41 @@
 import React, { useState } from "react";
 import "../Styles/Login.css";
-import { Link } from "react-router-dom";
-import { useAppContext } from "../Libs/StateProvider";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../Libs/Auth";
+import { withRouter } from "react-router";
 
-function Login() {
+
+const Login = withRouter(({history}) => {
+  const {isAuth, userHasAuth} = useAuth();
+  const [isError, setIsError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const signIn = async (e) => {
     e.preventDefault();
+    try {
+      let data = await fetch("http://localhost:3000/users/login", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      let user = await data.json();
+
+      if (data.status === 200) {
+        userHasAuth(user);
+        console.log("Welcome!")
+        history.push('/')
+      } else {
+        setIsError(true);
+      }
+    } catch (err) {
+      console.log(err);
+      setIsError(true);
+    }
   };
 
   return (
@@ -51,9 +78,15 @@ function Login() {
             <span>Create Account</span>
           </button>
         </Link>
+        {isError && (
+          <div className="login__error">
+            The username or password is incorrect!
+          </div>
+        )}
       </div>
     </div>
   );
 }
+)
 
 export default Login;

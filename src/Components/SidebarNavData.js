@@ -18,8 +18,8 @@ export const SidebarData = [
     color: "navbar__linksYellow",
   },
   {
-    title: "Ideas",
-    path: "/ideas",
+    title: "Tasks",
+    path: "/tasks",
     icon: <EmojiObjectsIcon />,
     color: "navbar__linksGreen",
   },
