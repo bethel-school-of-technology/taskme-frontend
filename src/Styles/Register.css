@@ -4,12 +4,12 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
-  flex: 0.8;
+  flex: 1;
   border-radius: 5px;
 }
 
 .register__logo {
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 20px;
   object-fit: contain;
   width: 150px;
@@ -23,6 +23,16 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+}
+
+.register__error {
+  color: #fd6f6e;
+  font-weight: 600;
+  border-radius: 20px;
+  font-size: 16px;
+  margin-top: 25px;
+  padding: 5px;
+  text-align: center;
 }
 
 .register > h1 {

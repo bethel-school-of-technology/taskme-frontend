@@ -3,8 +3,20 @@
     flex-direction: column;
     flex: 0.20;
     background-color: rgb(41, 41, 65);
-    justify-content: flex-start;
     color: white;
+}
+
+.sidebar__signInOut {
+    padding: 20px;
+    display: flex;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+.sidebar__signInOut span:hover {
+   transform: scale(1.05);
+   transform-origin: center;
+   transition: ease-in-out;
 }
 
 .sidebar__header {
@@ -13,7 +25,6 @@
     align-items: center;
     /* border-bottom: 1px solid lightgrey; */
     height: 3em;
-    justify-content: space-between;
 }
 
 .sidebar__headerSearch {
