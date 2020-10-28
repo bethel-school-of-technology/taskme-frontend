@@ -19,11 +19,11 @@ function querystring(name, url = window.location.href) {
 }
 
 export default function AuthRoute({ children, ...rest }) {
-  const { isAuthenticated } = useAuth();
+  const { isAuth } = useAuth();
   const redirect = querystring("redirect");
   return (
     <Route {...rest}>
-      {!isAuthenticated ? (
+      {!isAuth ? (
         children
       ) : (
         <Redirect

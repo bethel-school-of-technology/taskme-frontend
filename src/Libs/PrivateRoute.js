@@ -4,10 +4,10 @@ import { useAuth } from "./Auth";
 
 export default function PrivateRoute({ children, ...rest }) {
   const { pathname, search } = useLocation();
-  const { isAuthenticated } = useAuth();
+  const { isAuth } = useAuth();
   return (
     <Route {...rest}>
-      {isAuthenticated ? (
+      {isAuth ? (
         children
       ) : (
         <Redirect to={`/login?redirect=${pathname}${search}`} />

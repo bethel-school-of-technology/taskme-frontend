@@ -3,8 +3,25 @@ import { Avatar, IconButton } from "@material-ui/core";
 import "../Styles/Sidebar.css";
 import SearchOutlined from "@material-ui/icons/Search";
 import Navbar from "./Navbar";
+import { useAuth } from "../Libs/Auth"// import { useAuth } from "../Libs/Auth";
 
 function Sidebar() {
+  const { isAuth, userHasAuth } = useAuth();
+
+  const signOut = async (e) => {
+     e.preventDefault();
+     let data = await fetch("http://localhost:3000/users/logout", {
+       method: "GET",
+       credentials: "include",
+       headers: {
+         "Content-Type": "application/json",
+       },
+     });
+     userHasAuth(false);
+  }
+
+
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
@@ -21,6 +38,9 @@ function Sidebar() {
       </div>
       <div className="sidebar__nav">
         <Navbar />
+      </div>
+      <div className="sidebar__signInOut" onClick={signOut}>
+        <span>Sign Out</span>
       </div>
     </div>
   );
