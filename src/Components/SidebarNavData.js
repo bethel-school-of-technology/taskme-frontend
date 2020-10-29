@@ -1,8 +1,8 @@
 import React from 'react';
 import HomeIcon from "@material-ui/icons/Home";
-import GroupIcon from "@material-ui/icons/Group";
-import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
-import ChatIcon from '@material-ui/icons/Chat';
+import ForumIcon from "@material-ui/icons/Forum";
+import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
+import ListOutlinedIcon from "@material-ui/icons/ListAltOutlined";
 
 export const SidebarData = [
   {
@@ -12,21 +12,22 @@ export const SidebarData = [
     color: "navbar__linksRed",
   },
   {
-    title: "Groups",
-    path: "/groups",
-    icon: <GroupIcon />,
-    color: "navbar__linksYellow",
-  },
-  {
     title: "Tasks",
     path: "/tasks",
-    icon: <EmojiObjectsIcon />,
+    icon: <FormatListBulletedIcon />,
     color: "navbar__linksGreen",
   },
   {
+    title: "Lists",
+    path: "/lists",
+    icon: <ListOutlinedIcon />,
+    color: "navbar__linksYellow",
+  },
+  
+  {
     title: "Chat",
     path: "/chat",
-    icon: <ChatIcon />,
+    icon: <ForumIcon />,
     color: "navbar__linksPurple",
   },
 ];
