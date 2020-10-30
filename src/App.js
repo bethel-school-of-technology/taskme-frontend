@@ -49,7 +49,16 @@ function App() {
                 <Sidebar />
                 <Profile />
               </PrivateRoute>
+              <PrivateRoute path="/profileupdate">
+                <Sidebar />
+              </PrivateRoute>
               <PrivateRoute path="/tasks">
+                <Sidebar />
+              </PrivateRoute>
+              <PrivateRoute path="/lists">
+                <Sidebar />
+              </PrivateRoute>
+              <PrivateRoute path="/chat">
                 <Sidebar />
               </PrivateRoute>
               <PrivateRoute path="/">

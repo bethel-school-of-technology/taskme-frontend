@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../Styles/Register.css";
 import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../Libs/Auth";
+// import { useAuth } from "../Libs/Auth";
 
 function Register() {
   let history = useHistory();
-  const { isAuth, userHasAuth } = useAuth();
+  // const { isAuth, userHasAuth } = useAuth();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

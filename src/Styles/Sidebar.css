@@ -29,6 +29,7 @@
 
 .sidebar__headerSearch {
     display: flex;
+    margin-left: auto;
 }
 
 .sidebar__headerSearch .MuiSvgIcon-root {
