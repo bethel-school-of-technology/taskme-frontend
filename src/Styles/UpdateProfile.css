@@ -21,7 +21,7 @@
     font-weight: 700;
     font-size: 25px;
     margin-bottom: 20px;
-    border-bottom: 1px solid lightgrey;
+    /* border-bottom: 1px solid lightgrey; */
 }
 
 .updateProfile__details form input {
@@ -40,7 +40,7 @@
 }
 
 .updateProfile__saveButton {
-  margin-top: 15px;
+  margin-top: 20px;
   display: inline-block;
   border-radius: 15px;
   background-color: #FFC77D;
