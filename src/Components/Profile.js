@@ -22,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const deleteUser = (e) => {
+  e.preventDefault();
+  //Delete user
+}
+
 function Profile() {
   const classes = useStyles();
   const { isAuth } = useAuth();
@@ -52,6 +57,16 @@ function Profile() {
           <span>Update Profile</span>
         </button>
       </Link>
+      <button
+        onClick={() => {
+          if (window.confirm("Are you sure you want to delete your profile?"))
+            deleteUser();
+        }}
+        type="submit"
+        className="profile__deleteButton animation__delete"
+      >
+        <span>Delete Profile</span>
+      </button>
     </div>
   );
 }

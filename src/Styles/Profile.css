@@ -24,7 +24,7 @@
   font-weight: 700;
   font-size: 22px;
   margin-bottom: 15px;
-  border-bottom: 1px solid lightgrey;
+  /* border-bottom: 1px solid lightgrey; */
 }
 
 .profile__details p {
@@ -42,6 +42,20 @@
   display: inline-block;
   border-radius: 15px;
   background-color: #cb96ee;
+  color: #ffffff;
+  height: 30px;
+  width: 170px;
+  transition: all 0.5s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.profile__deleteButton {
+  margin-top: 15px;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #fc6e6d;
   color: #ffffff;
   height: 30px;
   width: 170px;
@@ -72,6 +86,33 @@
 }
 
 .animation:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* delete button */
+
+.animation__delete span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.animation__delete span:after {
+  content: "\2297";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.animation__delete:hover span {
+  padding-right: 25px;
+}
+
+.animation__delete:hover span:after {
   opacity: 1;
   right: 0;
 }
