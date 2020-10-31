@@ -9,39 +9,39 @@
 }
 
 .profile__avatar {
-  margin-top: 50px;
+  margin-top: 80px;
   margin-bottom: 40px;
 }
 
 .profile__details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .profile__details h2 {
-    font-weight: 700;
-    font-size: 22px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid lightgrey;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid lightgrey;
 }
 
 .profile__details p {
-    font-weight: 500;
-    color: rgb(87, 86, 86);
+  font-weight: 500;
+  color: rgb(87, 86, 86);
 }
 
 .profile__details p span {
-    font-weight: 400;
-    margin-top: 10px;
+  font-weight: 400;
+  margin-top: 10px;
 }
 
 .profile__updateButton {
   margin-top: 30px;
   display: inline-block;
   border-radius: 15px;
-  background-color: rgb(138, 138, 138);
+  background-color: #cb96ee;
   color: #ffffff;
   height: 30px;
   width: 170px;

@@ -8,6 +8,7 @@ import Profile from "./Components/Profile";
 import { AuthContext } from "./Libs/Auth";
 import PrivateRoute from "./Libs/PrivateRoute";
 import AuthRoute from "./Libs/AuthRoute";
+import UpdateProfile from "./Components/UpdateProfile";
 
 function App() {
   const [isAuth, userHasAuth] = useState(false);
@@ -29,7 +30,7 @@ function App() {
     // console.log(user);
 
     if (user.token) {
-      userHasAuth(user.token);
+      userHasAuth(user);
     }
   };
 
@@ -51,6 +52,7 @@ function App() {
               </PrivateRoute>
               <PrivateRoute path="/profileupdate">
                 <Sidebar />
+                <UpdateProfile />
               </PrivateRoute>
               <PrivateRoute path="/tasks">
                 <Sidebar />

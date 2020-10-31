@@ -3,6 +3,7 @@ import React from "react";
 import "../Styles/Profile.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import { useAuth } from "../Libs/Auth";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,24 +24,27 @@ const useStyles = makeStyles((theme) => ({
 
 function Profile() {
   const classes = useStyles();
+  const { isAuth } = useAuth();
 
   return (
     <div className="profile">
       <div className="profile__avatar">
         <Avatar
           className={classes.large}
-          alt=""
-          src="https://www.history.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_768/MTU3ODc5MDgzNDc5NjcyNTQz/portrait-of-john-smith.jpg"
+          alt={isAuth.user.FirstName}
+          src="https://i.redd.it/bb86qrrbeq121.jpg"
         />
       </div>
       <div className="profile__details">
         <h2>Profile Details</h2>
         <p>
-          <span>John Smith</span>
+          <span>
+            {isAuth.user.FirstName} {isAuth.user.LastName}
+          </span>
           <br />
-          <span>johnsmith@gmail.com</span>
+          <span>{isAuth.user.Email}</span>
           <br />
-          <span>johnsmith</span>
+          <span>{isAuth.user.Username}</span>
         </p>
       </div>
       <Link to="/profileupdate">
