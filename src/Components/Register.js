@@ -106,22 +106,21 @@ function Register() {
             value={cPassword}
             onChange={(e) => setCPassword(e.target.value)}
           />
-
-          <button
-            onClick={register}
-            type="submit"
-            className="register__registerButton animation"
-          >
-            <span>Create Account</span>
-          </button>
         </form>
-
-        <Link to="/login">
-          <button className="register__loginButton animation">
-            <span>Already have an account?</span>
-          </button>
-        </Link>
       </div>
+      <button
+        onClick={register}
+        type="submit"
+        className="register__registerButton animation"
+      >
+        <span>Create Account</span>
+      </button>
+
+      <Link to="/login">
+        <button className="register__loginButton animation">
+          <span>Already have an account?</span>
+        </button>
+      </Link>
     </div>
   );
 }
