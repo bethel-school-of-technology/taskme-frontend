@@ -9,6 +9,7 @@ import { AuthContext } from "./Libs/Auth";
 import PrivateRoute from "./Libs/PrivateRoute";
 import AuthRoute from "./Libs/AuthRoute";
 import UpdateProfile from "./Components/UpdateProfile";
+import Home from "./Components/Home";
 
 function App() {
   const [isAuth, userHasAuth] = useState(false);
@@ -33,6 +34,7 @@ function App() {
       userHasAuth(user);
     }
   };
+
 
   return (
     <AuthContext.Provider value={{ isAuth, userHasAuth }}>
@@ -65,6 +67,7 @@ function App() {
               </PrivateRoute>
               <PrivateRoute path="/">
                 <Sidebar />
+                <Home />
               </PrivateRoute>
             </Switch>
           </div>

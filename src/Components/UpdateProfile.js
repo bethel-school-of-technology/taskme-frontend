@@ -6,31 +6,31 @@ import { Link, useHistory } from "react-router-dom";
 function UpdateProfile() {
   let history = useHistory();
   const { isAuth } = useAuth();
-  const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const [Email, setEmail] = useState(isAuth.user.Email);
+  const [FirstName, setFirstName] = useState(isAuth.user.FirstName);
+  const [LastName, setLastName] = useState(isAuth.user.LastName);
+  const [Username, setUsername] = useState(isAuth.user.Username);
 
   const updateUser = async (e) => {
     e.preventDefault();
     try {
-      let data = await fetch(`http://localhost:3000/users/profile/update/`, {
+      let data = await fetch("http://localhost:3000/users/profile/update/", {
         method: "PUT",
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
-          firstName,
-          lastName,
-          username,
+          Email,
+          FirstName,
+          LastName,
+          Username,
         }),
       });
 
       let user = await data.json();
 
-      if (user.created) {
+      if (user.status === 200) {
         history.push("/profile");
       } else {
         alert("error");
@@ -48,25 +48,25 @@ function UpdateProfile() {
           <input
             placeholder="E-mail"
             type="text"
-            value={email}
+            value={Email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             placeholder="First Name"
             type="text"
-            value={firstName}
+            value={FirstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
           <input
             placeholder="Username"
             type="text"
-            value={username}
+            value={Username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
             placeholder="Last Name"
             type="text"
-            value={lastName}
+            value={LastName}
             onChange={(e) => setLastName(e.target.value)}
           />
         </form>

@@ -2,7 +2,7 @@ import { Avatar } from "@material-ui/core";
 import React from "react";
 import "../Styles/Profile.css";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../Libs/Auth";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,14 +22,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const deleteUser = (e) => {
-  e.preventDefault();
-  //Delete user
-}
-
 function Profile() {
   const classes = useStyles();
   const { isAuth } = useAuth();
+  let history = useHistory();
+
+  const deleteUser = async (e) => {
+    e.preventDefault();
+    try {
+      let data = await fetch("http://localhost:3000/users/profile/delete", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      let user = await data.json();
+
+      if (user.status === 200) {
+        history.push("/login");
+      } else {
+        alert("error");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="profile">
