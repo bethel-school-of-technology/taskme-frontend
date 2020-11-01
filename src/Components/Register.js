@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Styles/Register.css";
 import { Link, useHistory } from "react-router-dom";
 // import { useAuth } from "../Libs/Auth";
+import taskmeLogo from "../Images/taskmeLogo.jpg";
 
 function Register() {
   let history = useHistory();
@@ -62,7 +63,7 @@ function Register() {
       <Link to="/">
         <img
           className="register__logo"
-          src="https://img1.pnghut.com/5/14/9/3eiTeZwjRC/brand-evernote-mobile-app-itunes-logo.jpg"
+          src={taskmeLogo}
           alt=""
         />
       </Link>

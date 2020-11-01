@@ -3,6 +3,7 @@ import "../Styles/Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../Libs/Auth";
 import { withRouter } from "react-router";
+import taskmeLogo from "../Images/taskmeLogo.jpg";
 
 
 const Login = withRouter(({history}) => {
@@ -43,7 +44,7 @@ const Login = withRouter(({history}) => {
       <Link to="/">
         <img
           className="login__logo"
-          src="https://img1.pnghut.com/5/14/9/3eiTeZwjRC/brand-evernote-mobile-app-itunes-logo.jpg"
+          src={taskmeLogo}
           alt=""
         />
       </Link>
