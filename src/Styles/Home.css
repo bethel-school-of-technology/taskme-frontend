@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap");
+
+.home {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0.8;
+}
+
+.home__logo {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  width: 400px;
+  object-fit: contain;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.home__info {
+  font-family: "Inter", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  background: linear-gradient(
+    90deg,
+    rgba(252, 110, 109, 1) 0%,
+    rgba(255, 199, 125, 1) 35%,
+    rgba(54, 225, 189, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
