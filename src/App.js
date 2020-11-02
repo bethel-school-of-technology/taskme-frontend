@@ -60,7 +60,7 @@ function App() {
         </div>
       </Router>
     </AuthContext.Provider>
-  );
-}
+  )
+};
 
 export default App;
