@@ -2,7 +2,7 @@ import { Avatar } from "@material-ui/core";
 import React from "react";
 import "../Styles/Profile.css";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../Libs/Auth";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,8 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Profile() {
   const classes = useStyles();
-  const { isAuth } = useAuth();
-  let history = useHistory();
+  const { isAuth, userHasAuth } = useAuth();
 
   const deleteUser = async (e) => {
     e.preventDefault();
@@ -41,13 +40,25 @@ function Profile() {
       let user = await data.json();
 
       if (user.status === 200) {
-        history.push("/login");
+        signOut(e);
       } else {
         alert("error");
       }
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const signOut = async (e) => {
+    e.preventDefault();
+    await fetch("http://localhost:3000/users/logout", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    userHasAuth(false);
   };
 
   return (
@@ -77,9 +88,9 @@ function Profile() {
         </button>
       </Link>
       <button
-        onClick={() => {
+        onClick={(e) => {
           if (window.confirm("Are you sure you want to delete your profile?"))
-            deleteUser();
+            deleteUser(e);
         }}
         type="submit"
         className="profile__deleteButton animation__delete"
