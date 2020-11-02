@@ -13,12 +13,6 @@
     cursor: pointer;
 }
 
-.sidebar__signInOut span:hover {
-   transform: scale(1.05);
-   transform-origin: center;
-   transition: ease-in-out;
-}
-
 .sidebar__header {
     padding: 20px;
     display: flex;
@@ -29,6 +23,7 @@
 
 .sidebar__headerSearch {
     display: flex;
+    margin-left: auto;
 }
 
 .sidebar__headerSearch .MuiSvgIcon-root {

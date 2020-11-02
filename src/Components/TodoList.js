@@ -3,7 +3,7 @@ import '../Styles/TodoList.css'
 
 function TodoList() {
     return (
-        <div className='todolist'>
+        <div>
             <h3>Todo List</h3>
         </div>
     )

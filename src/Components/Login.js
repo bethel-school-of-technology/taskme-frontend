@@ -3,11 +3,12 @@ import "../Styles/Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../Libs/Auth";
 import { withRouter } from "react-router";
+import taskmeLogo from "../Images/taskmeLogo.jpg";
 
 
 const Login = withRouter(({history}) => {
   const {isAuth, userHasAuth} = useAuth();
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,16 +26,19 @@ const Login = withRouter(({history}) => {
 
       let user = await data.json();
 
-      if (data.status === 200) {
+      if (user.status === 200) {
         userHasAuth(user);
         console.log("Welcome!")
         history.push('/')
+      } else if(user.status === 410) {
+        setIsError("User was deleted.");
+        // alert("User was deleted");
       } else {
-        setIsError(true);
+        setIsError("The username or password is incorrect.");
       }
     } catch (err) {
       console.log(err);
-      setIsError(true);
+      setIsError("The username or password is incorrect.");
     }
   };
 
@@ -43,7 +47,7 @@ const Login = withRouter(({history}) => {
       <Link to="/">
         <img
           className="login__logo"
-          src="https://img1.pnghut.com/5/14/9/3eiTeZwjRC/brand-evernote-mobile-app-itunes-logo.jpg"
+          src={taskmeLogo}
           alt=""
         />
       </Link>
@@ -78,11 +82,7 @@ const Login = withRouter(({history}) => {
             <span>Create Account</span>
           </button>
         </Link>
-        {isError && (
-          <div className="login__error">
-            The username or password is incorrect!
-          </div>
-        )}
+        <div className="login__error">{isError}</div>
       </div>
     </div>
   );

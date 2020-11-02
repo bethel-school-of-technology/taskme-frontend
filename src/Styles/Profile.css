@@ -1,0 +1,118 @@
+.profile {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  flex: 0.8;
+  border-radius: 5px;
+}
+
+.profile__avatar {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.profile__details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile__details h2 {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 15px;
+  /* border-bottom: 1px solid lightgrey; */
+}
+
+.profile__details p {
+  font-weight: 500;
+  color: rgb(87, 86, 86);
+}
+
+.profile__details p span {
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.profile__updateButton {
+  margin-top: 30px;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #cb96ee;
+  color: #ffffff;
+  height: 30px;
+  width: 170px;
+  transition: all 0.5s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.profile__deleteButton {
+  margin-top: 15px;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #fc6e6d;
+  color: #ffffff;
+  height: 30px;
+  width: 170px;
+  transition: all 0.5s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.animation span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.animation span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.animation:hover span {
+  padding-right: 25px;
+}
+
+.animation:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* delete button */
+
+.animation__delete span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.animation__delete span:after {
+  content: "\2297";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.animation__delete:hover span {
+  padding-right: 25px;
+}
+
+.animation__delete:hover span:after {
+  opacity: 1;
+  right: 0;
+}

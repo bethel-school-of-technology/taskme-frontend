@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../Styles/Register.css";
 import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../Libs/Auth";
+// import { useAuth } from "../Libs/Auth";
+import taskmeLogo from "../Images/taskmeLogo.jpg";
 
 function Register() {
   let history = useHistory();
-  const { isAuth, userHasAuth } = useAuth();
+  // const { isAuth, userHasAuth } = useAuth();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -62,7 +63,7 @@ function Register() {
       <Link to="/">
         <img
           className="register__logo"
-          src="https://img1.pnghut.com/5/14/9/3eiTeZwjRC/brand-evernote-mobile-app-itunes-logo.jpg"
+          src={taskmeLogo}
           alt=""
         />
       </Link>
@@ -106,22 +107,21 @@ function Register() {
             value={cPassword}
             onChange={(e) => setCPassword(e.target.value)}
           />
-
-          <button
-            onClick={register}
-            type="submit"
-            className="register__registerButton animation"
-          >
-            <span>Create Account</span>
-          </button>
         </form>
-
-        <Link to="/login">
-          <button className="register__loginButton animation">
-            <span>Already have an account?</span>
-          </button>
-        </Link>
       </div>
+      <button
+        onClick={register}
+        type="submit"
+        className="register__registerButton animation"
+      >
+        <span>Create Account</span>
+      </button>
+
+      <Link to="/login">
+        <button className="register__loginButton animation">
+          <span>Already have an account?</span>
+        </button>
+      </Link>
     </div>
   );
 }
