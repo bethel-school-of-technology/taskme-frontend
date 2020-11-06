@@ -1,40 +1,53 @@
-import React, { useEffect } from 'react';
-import '../Styles/Tasks.css';
+import React, { useState } from "react";
+import { RiCloseCircleLine } from "react-icons/ri";
+import TasksForm from "./TasksForm";
+import { MdModeEdit } from "react-icons/md";
 
-function Tasks() {
+function Tasks({ tasks, completeTask, removeTask, updateTask }) {
+  const [edit, setEdit] = useState({
+    id: null,
+    value: "",
+  });
 
-    var [isEdit, setIsEdit] = useState("");
-    var [tasks, setTasks] = useState("");
-    var [task, setTask] = useState("");
+   const submitUpdate = (value) => {
+     updateTask(edit.id, value);
+     setEdit({
+       id: null,
+       value: "",
+     });
+   };
 
-    var [taskName, setTaskName] = useState("");
-    var [completed, setCompleted] = useState(false);
+   if (edit.id) {
+     return <TasksForm edit={edit} onSubmit={submitUpdate} />;
+   }
 
-    useEffect(() => {
-        const getAllTasks = async () => {
-            let tasksData = await fetch("http://localhost:3000/tasks/")
-            let t = await tasksData.json();
 
-            //console.log(t);
-
-            setTasks(t.data.tasks);
-        }
-
-        getAllTasks();
-    }, [])
-
-    return (
-        <div className='tasks'>
-            <h3>Tasks</h3>
-            {tasks.map((task, idx) => {
-                return(
-                    <div key={idx}>
-                        {task.tasks.taskname} {task.tasks.completed}
-                    </div>
-                )
-            })}
-        </div>
-    )
-};
+  return (
+    <div className="tasks">
+      {tasks.map((task, index) => {
+        return (
+          <div
+            className={task.isComplete ? "tasks__item complete" : "tasks__item"}
+            key={index}
+          >
+            <div key={task.id} onClick={() => completeTask(task.id)}>
+              {task.title}
+            </div>
+            <div className="icons">
+              <RiCloseCircleLine
+                onClick={() => removeTask(task.id)}
+                className="tasks__deleteIcon"
+              />
+              <MdModeEdit
+                onClick={() => setEdit({ id: task.id, value: task.title })}
+                className="tasks__editIcon"
+              />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default Tasks;
