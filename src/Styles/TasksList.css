@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.taskslist {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: center;
+  background-color: white;
+  background-color: #ffffff;
+  flex: 0.8;
+}
+
+.taskslist__title {
+  margin: 30px 0;
+  font-size: 32px;
+  color: #4e4e80;
+  font-family: 'Pacifico', cursive;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 80%;
+  align-self: center;
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.tasksform {
+  margin-bottom: 22px;
+}
+
+.tasksform__input {
+  width: 30%;
+  height: 30px;
+  border-radius: 15px 0 0 15px;
+  margin: 5px 0 0 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  outline: none;
+  border: none;
+  border: 3px solid #fc6e6d;
+  border-right: 0px;
+  background-color: transparent;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tasksform__input::placeholder {
+  color: #47474c;
+}
+
+.tasksform__input.edit::placeholder {
+  color: #47474c;
+}
+
+.tasksform__input.edit {
+  border: 3px solid#30e0c6;
+}
+
+.tasksform__button {
+  border-radius: 0 15px 15px 0;
+  color: #ffffff;
+  transition: all 0.5s;
+  cursor: pointer;
+  outline: none;
+  height: 38px;
+  width: 10%;
+  background: linear-gradient(90deg, #fd6f6e 0%, #ffc77d 100%);
+  border: none;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tasksform__button.edit {
+  background: linear-gradient(90deg, #36e1bd 0%, #cb96ee 100%);
+}
+
+.tasks__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px auto;
+  color: #fff;
+  background: linear-gradient(90deg, #fc6e6d 0%, #fa4d81 100%);
+  padding: 14px;
+  border-radius: 15px;
+  width: 80%;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+}
+
+.tasks__item:nth-child(4n + 1) {
+  background: linear-gradient(90deg, #ffc77d 0%, #f79858 100%);
+}
+
+.tasks__item:nth-child(4n + 2) {
+  background: linear-gradient(90deg, #36e1bd 0%, #10d6e4 100%);
+}
+
+.tasks__item:nth-child(4n + 3) {
+  background: linear-gradient(90deg, #cb96ee 0%, #ee96ea 100%);
+}
+
+.tasks__deleteIcon {
+  margin-right: 5px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.tasks__editIcon {
+  color: #fff;
+  font-size: 20px;
+}
