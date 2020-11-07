@@ -10,6 +10,7 @@ import PrivateRoute from "./Libs/PrivateRoute";
 import AuthRoute from "./Libs/AuthRoute";
 import UpdateProfile from "./Components/UpdateProfile";
 import Home from "./Components/Home";
+import Lists from "./Components/Lists";
 
 function App() {
   const [isAuth, userHasAuth] = useState(false);
@@ -61,6 +62,7 @@ function App() {
               </PrivateRoute>
               <PrivateRoute path="/lists">
                 <Sidebar />
+                <Lists />
               </PrivateRoute>
               <PrivateRoute path="/chat">
                 <Sidebar />
