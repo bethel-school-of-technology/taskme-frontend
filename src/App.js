@@ -11,6 +11,8 @@ import AuthRoute from "./Libs/AuthRoute";
 import UpdateProfile from "./Components/UpdateProfile";
 import Home from "./Components/Home";
 import Lists from "./Components/Lists";
+import TasksList from "./Components/TasksList";
+import TasksForm from "./Components/TasksForm";
 
 function App() {
   const [isAuth, userHasAuth] = useState(false);
@@ -36,7 +38,6 @@ function App() {
     }
   };
 
-
   return (
     <AuthContext.Provider value={{ isAuth, userHasAuth }}>
       <Router>
@@ -59,6 +60,7 @@ function App() {
               </PrivateRoute>
               <PrivateRoute path="/tasks">
                 <Sidebar />
+                <TasksList />
               </PrivateRoute>
               <PrivateRoute path="/lists">
                 <Sidebar />
@@ -76,7 +78,7 @@ function App() {
         </div>
       </Router>
     </AuthContext.Provider>
-  )
-};
+  );
+}
 
 export default App;
