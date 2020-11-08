@@ -10,6 +10,7 @@ import PrivateRoute from "./Libs/PrivateRoute";
 import AuthRoute from "./Libs/AuthRoute";
 import UpdateProfile from "./Components/UpdateProfile";
 import Home from "./Components/Home";
+import Lists from "./Components/Lists";
 import TasksList from "./Components/TasksList";
 import TasksForm from "./Components/TasksForm";
 
@@ -63,6 +64,7 @@ function App() {
               </PrivateRoute>
               <PrivateRoute path="/lists">
                 <Sidebar />
+                <Lists />
               </PrivateRoute>
               <PrivateRoute path="/chat">
                 <Sidebar />
