@@ -8,34 +8,37 @@ function Lists() {
     var [list, setList] = useState("");
 
     var [listname, setListName] = useState("");
-    var [completed, setCompleted] = useState(false);
 
-    useEffect(() => {
-        const getAllLists = async () => {
-            let listsData = await fetch("http://localhost:3000/lists/")
-            let l = await listsData.json();
-
-            setLists(l);
-        }
+useEffect(() => {
 
         getAllLists();
     }, [])
 
+const getAllLists = async () => {
+    let listsData = await fetch("http://localhost:3000/lists/")
+    let l = await listsData.json();
+
+    setLists(l);
+}
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let newListData = await fetch("http://localhost:3000/lists/create/", {
+        let newListData = await fetch("http://localhost:3000/lists/create", {
             method: "POST",
-            body: JSON.stringify({ listname })
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({listname})
         })
 
         let newList = newListData.json();
 
-        console.log(newList);
+        getAllLists();
     }
 
     return (
-        <div className='lists'>
-            <h3>Lists</h3>
+        <div className='listslist'>
+            <h3 className="listslist__title">Lists</h3>
             {lists.map((list, idx) => {
                 return (
                     <div key={idx}>
@@ -44,9 +47,8 @@ function Lists() {
                 )
             })}
             <form onSubmit={handleSubmit}>
-                <label>List Name</label>
-                <input type="text" onChange={e => setListName(e.target.value)} />
-                <input type="submit" />
+                <input className="listsform__input" type="text" placeholder="Create a List" onChange={e => setListName(e.target.value)} />
+                <button className="listsform__button" type="submit">CREATE</button>
             </form>
         </div>
     )
