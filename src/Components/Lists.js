@@ -1,57 +1,62 @@
-import React, { useEffect, useState } from 'react'
-import '../Styles/Lists.css'
+import React, { useEffect, useState } from "react";
+import "../Styles/Lists.css";
 
 function Lists() {
+  const [isEdit, setIsEdit] = useState("");
+  const [lists, setLists] = useState([]);
+  const [list, setList] = useState("");
+  const [ListName, setListName] = useState("");
 
-    var [isEdit, setIsEdit] = useState("");
-    var [lists, setLists] = useState([]);
-    var [list, setList] = useState("");
+  useEffect(() => {
+    getAllLists();
+  }, []);
 
-    var [listname, setListName] = useState("");
+  const getAllLists = async () => {
+    let listsData = await fetch("http://localhost:3000/lists/");
+    let data = await listsData.json();
 
-useEffect(() => {
+    setLists(data);
+  };
 
-        getAllLists();
-    }, [])
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let newListData = await fetch("http://localhost:3000/lists/create", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ListName }),
+    });
 
-const getAllLists = async () => {
-    let listsData = await fetch("http://localhost:3000/lists/")
-    let l = await listsData.json();
+    let newList = await newListData.json();
+    console.log(newList);
 
-    setLists(l);
+    getAllLists();
+    setListName("");
+  };
+
+  return (
+    <div className="listslist">
+      <h3 className="listslist__title">Lists</h3>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          className="listsform__input"
+          type="text"
+          value={ListName}
+          placeholder="Create a List"
+          onChange={(e) => setListName(e.target.value)}
+        />
+        <button className="listsform__button" type="submit">
+          CREATE
+        </button>
+      </form>
+      {lists.map((list, idx) => {
+        return <div key={idx}>{list.ListName}</div>;
+      })}
+    </div>
+  );
 }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        let newListData = await fetch("http://localhost:3000/lists/create", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({listname})
-        })
-
-        let newList = newListData.json();
-
-        getAllLists();
-    }
-
-    return (
-        <div className='listslist'>
-            <h3 className="listslist__title">Lists</h3>
-            {lists.map((list, idx) => {
-                return (
-                    <div key={idx}>
-                        {list.ListName}
-                    </div>
-                )
-            })}
-            <form onSubmit={handleSubmit}>
-                <input className="listsform__input" type="text" placeholder="Create a List" onChange={e => setListName(e.target.value)} />
-                <button className="listsform__button" type="submit">CREATE</button>
-            </form>
-        </div>
-    )
-};
 
 export default Lists;
