@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-.listslist {
+.main {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -10,15 +10,39 @@
   flex: 0.8;
 }
 
+.listslist {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: center;
+  background-color: white;
+  background-color: #ffffff;
+}
+
 .listslist__title {
-  margin: 30px 0;
-  font-size: 32px;
+  margin: 20px 0;
+  font-size: 34px;
   color: #4e4e80;
   font-family: 'Pacifico', cursive;
 }
 
+.lists {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  width: 80%;
+  align-self: center;
+}
+
+.listsform {
+  margin-bottom: 22px;
+}
+
 .listsform__input {
-    width: 30%;
+    width: 38%;
     height: 30px;
     border-radius: 15px 0 0 15px;
     margin: 5px 0 0 5px;
@@ -51,7 +75,7 @@
     cursor: pointer;
     outline: none;
     height: 38px;
-    width: 10%;
+    width: 12%;
     background: linear-gradient(90deg, #fd6f6e 0%, #ffc77d 100%);
     border: none;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
@@ -59,4 +83,40 @@
   
   .listsform__button.edit {
     background: linear-gradient(90deg, #36e1bd 0%, #cb96ee 100%);
+  }
+
+  .lists__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px auto;
+    color: #fff;
+    background: linear-gradient(90deg, #fc6e6d 0%, #fa4d81 100%);
+    padding: 14px;
+    border-radius: 15px;
+    width: 65%;
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .lists__item:nth-child(4n + 1) {
+    background: linear-gradient(90deg, #ffc77d 0%, #f79858 100%);
+  }
+  
+  .lists__item:nth-child(4n + 2) {
+    background: linear-gradient(90deg, #36e1bd 0%, #10d6e4 100%);
+  }
+  
+  .lists__item:nth-child(4n + 3) {
+    background: linear-gradient(90deg, #cb96ee 0%, #ee96ea 100%);
+  }
+  
+  .lists__deleteIcon {
+    margin-right: 5px;
+    color: #fff;
+    font-size: 20px;
+  }
+  
+  .lists__editIcon {
+    color: #fff;
+    font-size: 20px;
   }
