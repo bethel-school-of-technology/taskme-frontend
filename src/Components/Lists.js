@@ -9,17 +9,17 @@ function Lists() {
 
     var [listname, setListName] = useState("");
 
-useEffect(() => {
+    useEffect(() => {
 
-        getAllLists();
+            getAllLists();
     }, [])
 
-const getAllLists = async () => {
-    let listsData = await fetch("http://localhost:3000/lists/")
-    let l = await listsData.json();
+    const getAllLists = async () => {
+        let listsData = await fetch("http://localhost:3000/lists")
+        let l = await listsData.json();
 
-    setLists(l);
-}
+        setLists(l);
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,15 +29,15 @@ const getAllLists = async () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({listname})
-        })
+            })
 
-        let newList = newListData.json();
+        let newList = await newListData.json();
 
-        getAllLists();
+        console.log(newList);
     }
 
     return (
-        <div className='listslist'>
+        <div className="listslist">
             <h3 className="listslist__title">Lists</h3>
             {lists.map((list, idx) => {
                 return (
@@ -45,12 +45,18 @@ const getAllLists = async () => {
                         {list.ListName}
                     </div>
                 )
-            })}
-            <form onSubmit={handleSubmit}>
-                <input className="listsform__input" type="text" placeholder="Create a List" onChange={e => setListName(e.target.value)} />
-                <button className="listsform__button" type="submit">CREATE</button>
-            </form>
-        </div>
+        })}
+        <form onSubmit={handleSubmit}>
+            <input 
+                className="listsform__input" 
+                type="text" 
+                placeholder="Create a List"
+                value={listname} 
+                onChange={e => setListName(e.target.value)} 
+            />
+            <button className="listsform__button" type="submit">CREATE</button>
+        </form>
+    </div>
     )
 };
 
