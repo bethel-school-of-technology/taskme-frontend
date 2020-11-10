@@ -9,19 +9,19 @@ function Tasks({ tasks, completeTask, removeTask, updateTask }) {
     value: "",
   });
 
-   const submitUpdate = (value) => {
-     updateTask(edit.id, value);
-     setEdit({
-       id: null,
-       value: "",
-     });
-   };
+  const submitUpdate = (value) => {
+    updateTask(edit.id, value);
+    setEdit({
+      id: null,
+      value: "",
+    });
+  };
 
-   if (edit.id) {
-     return <TasksForm edit={edit} onSubmit={submitUpdate} />;
-   }
+  if (edit.id) {
+    return <TasksForm edit={edit} onSubmit={submitUpdate} />;
+  }
 
-
+  
   return (
     <div className="tasks">
       {tasks.map((task, index) => {
